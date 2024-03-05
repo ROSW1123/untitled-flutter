@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
 
 class Home extends StatefulWidget {
   final int initialIndex;
-  const Home({super.key, this.initialIndex=0, required this.title});
+  const Home({super.key, this.initialIndex=1, required this.title});
   final String title;
 
   @override
@@ -38,9 +38,9 @@ class _HomeState extends State<Home> {
   int _selectedIndex = 0;
 
   final List<Widget> _screens = [
+    const SnapchatDiscoveryPage(),
     const TwitterHomePage(),
     const InstagramSettingPage(),
-    const SnapchatDiscoveryPage()
   ];
 
   @override
@@ -64,6 +64,10 @@ class _HomeState extends State<Home> {
         currentIndex: _selectedIndex,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: 'Discover'
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
@@ -71,10 +75,6 @@ class _HomeState extends State<Home> {
               icon: Icon(Icons.person),
               label: 'Profile'
           ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              label: 'Discover'
-          )
         ],
       ),
     );
