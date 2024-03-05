@@ -1,5 +1,4 @@
 // TwitterHomePage
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 @override
 Widget build(BuildContext context) {
@@ -11,18 +10,17 @@ Widget build(BuildContext context) {
     ),
 
     body: ListView(
-      children: [
-        const Row(
+      children: const [
+        Row(
           children: [
           ],
         ),
 
         // Tweets
         TweetCard(),
-        TweetCard(),
 
         // Loading indicator
-        const Padding(
+        Padding(
           padding: EdgeInsets.all(8),
           child: LinearProgressIndicator(),
         ),
@@ -35,6 +33,8 @@ Widget build(BuildContext context) {
 
 // Tweet card
 class TweetCard extends StatelessWidget {
+  const TweetCard({super.key});
+
   @override
   Widget build(BuildContext context) {
     return const Card(
