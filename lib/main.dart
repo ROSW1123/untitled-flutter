@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pikachuvision/instagram.dart';
+import 'package:pikachuvision/snapchat.dart';
+import 'package:pikachuvision/twitter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +26,8 @@ class MyApp extends StatelessWidget {
 }
 
 class Home extends StatefulWidget {
-  const Home({super.key, required this.title});
+  final int initialIndex;
+  const Home({super.key, this.initialIndex=0, required this.title});
   final String title;
 
   @override
@@ -31,13 +35,49 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  int _selectedIndex = 0;
+
+  final List<Widget> _screens = [
+    const TwitterHomePage(),
+    const InstagramSettingPage(),
+    const SnapchatDiscoveryPage()
+  ];
+
+  @override
+  void initState() {
+    _selectedIndex = widget.initialIndex;
+    super.initState();
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+      body: _screens[_selectedIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: _onItemTapped,
+        currentIndex: _selectedIndex,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Profile'
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: 'Discover'
+          )
+        ],
       ),
     );
   }
+
 }
