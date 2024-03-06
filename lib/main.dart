@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pikachuvision/instagram.dart';
-import 'package:pikachuvision/snapchat.dart';
-import 'package:pikachuvision/twitter.dart';
+import 'package:pikachuvision/pages/instagram.dart';
+import 'package:pikachuvision/pages/snapchat.dart';
+import 'package:pikachuvision/pages/twitter.dart';
 
 void main() {
   runApp(const MyApp());
