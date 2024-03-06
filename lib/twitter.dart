@@ -63,7 +63,7 @@ class AvatarStoryTile extends StatelessWidget {
       child: Stack(
         children: [
           CircleAvatar(backgroundImage: NetworkImage(imageUrl)),
-          (icon != null) ? Positioned(child: icon) : Container(),
+          (icon != const Icon(Icons.person_off)) ? Positioned(child: icon) : Container(),
         ],
       ),
     );
