@@ -18,7 +18,7 @@ class SnapchatDiscoveryPage extends StatelessWidget {
           // Ads
           SliverToBoxAdapter(
               child: Container(
-                height: 200,
+                height: MediaQuery.of(context).size.height*0.2,
                 color: Colors.red,
               )
           ),
